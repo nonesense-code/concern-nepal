@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./components/HomePage/Home";
 import Navbar from "./components/Common/Navbar";
 import Footer from "./components/Common/Footer";
+import Services from "./components/ServicePage/Service";
 
 const App = () => {
   return (
@@ -10,6 +11,7 @@ const App = () => {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="our-services" element={<Services />} />
         </Routes>
         <Footer />
       </Router>
