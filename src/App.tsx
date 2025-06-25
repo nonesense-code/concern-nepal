@@ -1,7 +1,22 @@
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./components/HomePage/Home";
+import Navbar from "./components/Common/Navbar";
+import Footer from "./components/Common/Footer";
+import About from "./components/AboutPage/About";
+import Service from "./components/ServicePage/Service";
+
 const App = () => {
   return (
     <>
-      <div className="text-red-900">Hello</div>
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="about" element={<About />} />
+          <Route path="service" element={<Service />} />
+        </Routes>
+        <Footer />
+      </Router>
     </>
   );
 };
