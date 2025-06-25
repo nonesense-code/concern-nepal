@@ -1,7 +1,7 @@
 const Service = () => {
   return (
     <>
-      <div>This is Service page</div>
+      <div className="">This is Service page</div>
     </>
   );
 };
