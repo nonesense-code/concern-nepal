@@ -1,7 +1,15 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../assets/images/logo.png";
+import { IoMenu } from "react-icons/io5";
+import { IoClose } from "react-icons/io5";
 
 const Navbar = () => {
+  const [isMenu, setIsMenu] = useState(false);
+  const toggleMenu = () => {
+    setIsMenu(!isMenu);
+  };
+
   return (
     <>
       <nav className="px-4 md:px-6 lg:px-8 bg-gradient-to-b from-[bg-gradient-to-b from-[#c91743] to-purple-600] to-[#193489] fixed z-50 w-full">
@@ -33,11 +41,57 @@ const Navbar = () => {
                 )
               )}
             </section>
-            
+
             <section className="hidden md:flex">
               <button className="bg-white rounded-md shadow-gray-600 shadow-md text-pink-600 font-semibold text-lg px-2 py-1">
                 Contact/Event
               </button>
+            </section>
+
+            {/* Responsive */}
+            <section className="flex md:hidden">
+              <button onClick={toggleMenu}>
+                <IoMenu className="text-white text-lg" />
+              </button>
+
+              <section
+                className={`absolute w-1/2 min-h-screen left-0 top-0 bg-[rgba(10,20,32,0.6)] backdrop-blur-md transition-all duration-200 ${
+                  isMenu ? "translate-x-0" : "-translate-x-full"
+                }`}
+              >
+                <div className="p-4 flex items-start w-full flex-col justify-center">
+                  <div className="flex items-center justify-between w-full text-white">
+                    <div>
+                      <h3 className="text-lg font-medium">Menu</h3>
+                    </div>
+                    <button onClick={toggleMenu}>
+                      <IoClose className="text-lg" />
+                    </button>
+                  </div>
+                  <div className="mt-20 flex items-start flex-col justify-center gap-2 text-white font-semibold text-lg">
+                    {["Home", "About", "Our Services", "Market Research"].map(
+                      (item, index) => (
+                        <Link
+                          onClick={toggleMenu}
+                          key={index}
+                          to={
+                            index === 0
+                              ? "/"
+                              : `/${item.toLowerCase().split(" ").join("-")}`
+                          }
+                        >
+                          {item}
+                        </Link>
+                      )
+                    )}
+                  </div>
+                  <div className="mt-10">
+                    <button className="rounded-md border-1 active:bg-black active:text-white shadow-gray-600 shadow-md text-[#fff] font-semibold text-lg px-2 py-1">
+                      Contact/Event
+                    </button>
+                  </div>
+                </div>
+              </section>
             </section>
           </div>
         </div>
