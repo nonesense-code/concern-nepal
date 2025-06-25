@@ -4,9 +4,6 @@ const Home = () => {
       <div className="text-xl text-green-800 min-h-screen">
         Welcome to Home page
       </div>
-      <div className="text-xl text-green-800 min-h-screen">
-        Welcome to Home page
-      </div>
     </>
   );
 };

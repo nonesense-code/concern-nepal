@@ -1,6 +1,7 @@
 import ourServices from "./ServiceList.ts"
 const Service = () => {
   return (
+    <>
     <div className="">
       <div className="">This is Service page</div>
       <div>Why do you need Concern Nepal for your research?</div>
@@ -14,6 +15,7 @@ const Service = () => {
         ))}
       </div>
     </div>
+      </>
   );
 };
 
