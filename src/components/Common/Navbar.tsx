@@ -31,11 +31,10 @@ const Navbar = () => {
                   <Link
                     key={index}
                     to={
-                      index === 1
-                        ? "#about"
+                      index === 0
+                        ? "/"
                         : `/${item.toLowerCase().split(" ").join("-")}`
                     }
-                    
                   >
                     {item}
                   </Link>
@@ -43,11 +42,12 @@ const Navbar = () => {
               )}
             </section>
 
-           <section className="hidden md:flex">
+            <section className="hidden md:flex">
               <button className="bg-white rounded-md shadow-gray-600 shadow-md text-pink-600 font-semibold text-lg px-2 py-1">
                 <a href="#about">Contact/Event</a>
               </button>
-            </section>
+                    
+            </section>
 
             {/* Responsive */}
             <section className="flex md:hidden">
