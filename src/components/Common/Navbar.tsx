@@ -44,7 +44,7 @@ const Navbar = () => {
 
             <section className="hidden md:flex">
               <button className="bg-white rounded-md shadow-gray-600 shadow-md text-pink-600 font-semibold text-lg px-2 py-1">
-                <a href="#about">Contact/Event</a>
+                Contact/Event
               </button>
                     
             </section>
