@@ -8,7 +8,7 @@ const Service = () => {
       {/* services down here */}
       <div>
         {ourServices.map((item,index)=>(
-          <div className="bg-[#F3F7FA] h-32 w-40">
+          <div key={index} className="bg-[#F3F7FA] h-32 w-40">
             {item.description}
             {item.title}
           </div>
