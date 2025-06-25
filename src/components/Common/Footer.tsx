@@ -11,7 +11,7 @@ const Footer = () => {
     <>
       <footer className="bg-[#1E40B2]">
         <div className="container mx-auto text-white px-16 py-10 border-b border-[#afafaf]">
-          <div className="flex flex-col md:flex-row items-start md:items-start justify-between">
+          <div className="flex flex-col md:flex-row items-start md:items-start justify-between gap-2">
             <div className="flex items-start justify-center flex-col gap-2">
               <h2 className="text-lg">Concern</h2>
               <p className="w-72">
@@ -71,7 +71,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="text-center text-base font-medium">
+        <div className="text-center text-base font-base py-4 text-white">
           &copy; {new Date().getFullYear()} Concern Nepal. All rights reserved
         </div>
       </footer>
