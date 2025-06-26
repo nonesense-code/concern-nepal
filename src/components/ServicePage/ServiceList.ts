@@ -1,6 +1,6 @@
 const serviceList = [
   {
-    title: "Political Consulting",
+    title: "Political consult",
     description:
       "Empowering Political Leaders with Insightful Strategy and Data-Driven Campaigns",
     icon: "/images/services/political-consulting.png",
