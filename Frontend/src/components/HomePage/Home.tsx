@@ -44,8 +44,8 @@ const Home = () => {
       </section>
       <About />
       <Service />
-      <Partner />
       <Impact />
+      <Partner />
     </>
   );
 };
