@@ -1,5 +1,6 @@
 import About from "../AboutPage/About";
 import Service from "../ServicePage/Service";
+import Partner from "../PartnerPage/Partner";
 import TypedText from "../../utils/TypedText";
 const Home = () => {
   return (
@@ -41,6 +42,7 @@ const Home = () => {
       </section>
       <About />
       <Service />
+      <Partner />
     </>
   );
 };
