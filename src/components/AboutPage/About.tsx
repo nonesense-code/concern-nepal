@@ -1,12 +1,13 @@
-
 const About = () => {
   return (
     <>
       <section className="bg-[rgba(2,2,2,0.05)]" id="about">
-        <div className="container mx-auto w-full pt-16 px-12">
+        <div className="container mx-auto w-full pt-16 px-4 lg:px-12">
           <div className="flex flex-col gap-2">
-            <h3 className="text-center font-semibold text-2xl">About us</h3>
-            <h4 className="text-center uppercase tracking-wide text-4xl">
+            <h2 className="text-3xl text-center font-bold text-black mb-2">
+              About us
+            </h2>
+            <h4 className="text-center uppercase tracking-tight text-lg md:text-4xl">
               Exceptional Insights for Meaningful
               <span className="text-[#db143c]">Impact</span>
             </h4>
