@@ -2,11 +2,15 @@ const About = () => {
   return (
     <>
       <section className="bg-[rgba(2,2,2,0.05)]" id="about">
-        <div className="container mx-auto w-full pt-16 px-4 lg:px-12">
+        <div className="container mx-auto w-full pt-20 px-4 lg:px-12">
           <div className="flex flex-col gap-2">
-            <h2 className="text-3xl text-center font-bold text-black mb-2">
-              About us
-            </h2>
+            <div className="flex items-center justify-center gap-4 ">
+              <div className="border-t-4 border-t-[#DB143C] w-22"></div>
+              <div className="">
+                <h2 className="text-3xl font-bold text-black mb-2">About us</h2>
+              </div>
+              <div className="border-t-4 border-t-[#013892] w-22"></div>
+            </div>
             <h4 className="text-center uppercase tracking-tight text-lg md:text-4xl">
               Exceptional Insights for Meaningful
               <span className="text-[#db143c]">Impact</span>
