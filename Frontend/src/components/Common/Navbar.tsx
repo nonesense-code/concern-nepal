@@ -1,11 +1,7 @@
-import { useState, useEffect } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useState } from "react";
 import { Link } from "react-router-dom";
-
 import { IoMenu } from "react-icons/io5";
 import { IoClose } from "react-icons/io5";
-gsap.registerPlugin(ScrollTrigger);
 
 const Navbar = () => {
   const [isMenu, setIsMenu] = useState(false);
@@ -13,23 +9,10 @@ const Navbar = () => {
     setIsMenu(!isMenu);
   };
 
-  useEffect(() => {
-    gsap.to(".navbar", {
-      backgroundColor: "rgba(10,20,32,0.6)",
-      color: "white",
-      scrollTrigger: {
-        trigger: "body",
-        start: "top 0%",
-        end: "top -10%",
-        scrub: 0.6,
-      },
-    });
-  });
-
   return (
     <>
-      <nav className="navbar text-black px-4 backdrop-blur-md md:px-6 lg:px-8 top-0 left-0 border-b border-1 border-[#afafaf] fixed z-50 w-full">
-        <div className="container mx-auto w-full">
+      <nav className="navbar text-white px-4 md:px-8 top-0 left-0 fixed z-50 w-full">
+        <div className="container mx-auto w-full bg-[rgba(10,20,32,0.6)] backdrop-blur-md rounded-full border-1 border-[#afafaf] px-4 mt-4">
           <div className="flex items-center justify-between">
             <section className="flex-shrink-0 py-2">
               <Link to="/">
@@ -51,7 +34,7 @@ const Navbar = () => {
                         ? "#"
                         : `#${item.toLowerCase().split(" ").join("-")}`
                     }
-                    className="hover:underline"
+                    className="hover:bg-zinc-600 px-4 py-2 rounded-full"
                   >
                     {item}
                   </a>
@@ -60,10 +43,9 @@ const Navbar = () => {
             </section>
 
             <section className="hidden md:flex">
-              <button className="bg-white rounded-md shadow-gray-600 shadow-md text-pink-600 font-semibold text-lg px-2 py-1">
+              <button className="style-button px-4 py-2 rounded-full text-white">
                 Contact/Event
               </button>
-                    
             </section>
 
             {/* Responsive */}
@@ -108,7 +90,7 @@ const Navbar = () => {
             )}
           </div>
           <div className="mt-10">
-            <button className="rounded-md border-1 active:bg-black active:text-white shadow-gray-600 shadow-md text-[#fff] font-semibold text-lg px-2 py-1">
+            <button className="style-button px-4 py-2 rounded-full text-white">
               Contact/Event
             </button>
           </div>
