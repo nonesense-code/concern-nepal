@@ -34,7 +34,7 @@ const Navbar = () => {
                         ? "#"
                         : `#${item.toLowerCase().split(" ").join("-")}`
                     }
-                    className="hover:underline"
+                    className="hover:bg-zinc-600 px-4 py-2 rounded-full"
                   >
                     {item}
                   </a>
