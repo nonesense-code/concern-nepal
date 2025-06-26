@@ -90,7 +90,7 @@ const Navbar = () => {
             )}
           </div>
           <div className="mt-10">
-            <button className="rounded-md border-1 active:bg-black active:text-white shadow-gray-600 shadow-md text-[#fff] font-semibold text-lg px-2 py-1">
+            <button className="style-button px-4 py-2 rounded-full text-white">
               Contact/Event
             </button>
           </div>

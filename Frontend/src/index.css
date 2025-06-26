@@ -21,6 +21,10 @@ html {
   background: linear-gradient(90deg, #44b3a9, #716fff, #da32d8, #fda54e);
 }
 
+.style-button:active {
+  scale: 1.02;
+}
+
 .style-button::after {
   content: "";
   position: absolute;
