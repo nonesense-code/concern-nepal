@@ -2,7 +2,10 @@ import ourServices from "./ServiceList";
 
 const Service = () => {
   return (
-    <div className="pt-24 bg-white px-6 md:px-20 py-16 ">
+    <div
+      className="pt-20 bg-[rgba(2,2,2,0.05)] px-6 md:px-20 py-16 "
+      id="our-services"
+    >
       <div className="container mx-auto ">
         <div className="text-center mb-10 ">
           <div className="flex items-center justify-center gap-4 ">
@@ -16,8 +19,8 @@ const Service = () => {
           </div>
 
           <p className="text-gray-700 text-lg">
-            Why do you need
-            <span className="text-blue-600 font-semibold">Concern Nepal</span>
+            Why do you need{" "}
+            <span className="text-blue-600 font-semibold">Concern Nepal</span>{" "}
             for your research?
           </p>
         </div>

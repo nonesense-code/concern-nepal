@@ -8,7 +8,7 @@ const serviceList = [
   {
     title: "Market Research",
     description: "In-depth market analysis and consumer behavior studies.",
-    icon: "/images/services/market-reasearch.png",
+    icon: "/images/services/market-research.png",
   },
   {
     title: "Training",
@@ -32,7 +32,7 @@ const serviceList = [
     title: "Campaign Design and Management",
     description:
       "Smart Campaign Design and Strategy for Today's Electoral Challenges",
-    icon: "/images/services/election-campaign.png",
+    icon: "/images/services/election.png",
   },
 ];
 export default serviceList;
