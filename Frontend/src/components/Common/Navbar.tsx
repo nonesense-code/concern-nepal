@@ -1,11 +1,7 @@
-import { useState, useEffect } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useState } from "react";
 import { Link } from "react-router-dom";
-
 import { IoMenu } from "react-icons/io5";
 import { IoClose } from "react-icons/io5";
-gsap.registerPlugin(ScrollTrigger);
 
 const Navbar = () => {
   const [isMenu, setIsMenu] = useState(false);
