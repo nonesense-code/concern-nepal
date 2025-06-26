@@ -4,7 +4,7 @@ import TypedText from "../../utils/TypedText";
 const Home = () => {
   return (
     <>
-      <section className="bg-[rgba(2,2,2,0.05)] overflow-hidden">
+      <section className="overflow-hidden bg-gradient-to-r from-[rgba(219,20,60,0.1)] to-[rgba(13,54,141,0.1)]">
         <div className="container mx-auto pt-24 md:pt-32 px-4 lg:px-12">
           <div className="flex flex-col md:flex-row items-center justify-between gap-8">
             {/* Text Content */}
