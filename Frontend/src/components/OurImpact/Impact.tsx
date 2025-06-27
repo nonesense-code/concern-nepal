@@ -13,7 +13,7 @@ const Impact = () => {
       : impacts.filter((item) => item.tag === selectedTag);
 
   return (
-    <section className="bg-[#F3F7FA] pt-20">
+    <section className="bg-[#F3F7FA]">
       <div className="py-8 container mx-auto px-12">
         <div className="flex flex-col items-center justify-center">
           <h2 className="text-center font-bold text-3xl text-[#003b9f]">
