@@ -1,4 +1,5 @@
 import { useState } from "react";
+import axios from "axios";
 
 const NewBlog = () => {
   const [formData, setFormData] = useState({
@@ -10,6 +11,10 @@ const NewBlog = () => {
     content: "",
   });
 
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [success, setSuccess] = useState(false);
+
   const handleChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
@@ -18,10 +23,39 @@ const NewBlog = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const VITE_BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Blog Data:", formData);
-    // You can now POST `formData` to MongoDB using Axios/Fetch
+    setLoading(true);
+    setError(null);
+    setSuccess(false);
+
+    try {
+      // Send formData object directly; axios automatically JSON.stringify it and sets headers
+      const response = await axios.post(
+        `${VITE_BACKEND_URL}/blog/create`,
+        formData
+      );
+
+      // Axios throws on bad status automatically, so you can just check response.data if needed
+      setSuccess(true);
+      setFormData({
+        title: "",
+        author: "",
+        tags: "",
+        image: "",
+        status: "Pending",
+        content: "",
+      });
+    } catch (err: any) {
+      // Axios errors have response data in err.response.data
+      const message =
+        err.response?.data?.message || err.message || "Failed to create blog";
+      setError(message);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -32,6 +66,14 @@ const NewBlog = () => {
       >
         <h2 className="text-2xl font-bold mb-2">Create New Blog</h2>
 
+        {error && <p className="text-red-400 font-semibold mb-2">{error}</p>}
+        {success && (
+          <p className="text-green-400 font-semibold mb-2">
+            Blog created successfully!
+          </p>
+        )}
+
+        {/* Title */}
         <div>
           <label className="block text-sm font-medium mb-1">Title</label>
           <input
@@ -41,9 +83,11 @@ const NewBlog = () => {
             required
             className="w-full p-2 rounded-md bg-white/10 border border-white/20 text-white placeholder-gray-300"
             placeholder="Enter blog title"
+            disabled={loading}
           />
         </div>
 
+        {/* Author */}
         <div>
           <label className="block text-sm font-medium mb-1">Author</label>
           <input
@@ -53,9 +97,11 @@ const NewBlog = () => {
             required
             className="w-full p-2 rounded-md bg-white/10 border border-white/20 text-white placeholder-gray-300"
             placeholder="Author name"
+            disabled={loading}
           />
         </div>
 
+        {/* Tags */}
         <div>
           <label className="block text-sm font-medium mb-1">
             Tags (comma separated)
@@ -66,9 +112,11 @@ const NewBlog = () => {
             onChange={handleChange}
             className="w-full p-2 rounded-md bg-white/10 border border-white/20 text-white placeholder-gray-300"
             placeholder="e.g., tech, react, web"
+            disabled={loading}
           />
         </div>
 
+        {/* Image URL */}
         <div>
           <label className="block text-sm font-medium mb-1">Image URL</label>
           <input
@@ -77,9 +125,11 @@ const NewBlog = () => {
             onChange={handleChange}
             className="w-full p-2 rounded-md bg-white/10 border border-white/20 text-white placeholder-gray-300"
             placeholder="https://example.com/image.jpg"
+            disabled={loading}
           />
         </div>
 
+        {/* Status */}
         <div>
           <label className="block text-sm font-medium mb-1">Status</label>
           <select
@@ -88,6 +138,7 @@ const NewBlog = () => {
             onChange={handleChange}
             className="w-full p-2 rounded-md bg-[rgba(255,255,255,0.1)] border border-white/20 text-white placeholder-gray-300
              appearance-none focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent"
+            disabled={loading}
           >
             <option value="Pending" className="bg-[#0a1420] text-white">
               Pending
@@ -101,6 +152,7 @@ const NewBlog = () => {
           </select>
         </div>
 
+        {/* Content */}
         <div>
           <label className="block text-sm font-medium mb-1">Content</label>
           <textarea
@@ -111,14 +163,16 @@ const NewBlog = () => {
             required
             className="w-full p-2 rounded-md bg-white/10 border border-white/20 text-white placeholder-gray-300"
             placeholder="Write your blog content here..."
+            disabled={loading}
           ></textarea>
         </div>
 
         <button
           type="submit"
-          className="w-full py-2 rounded-md font-semibold bg-gradient-to-r from-blue-500 to-indigo-600 text-white hover:opacity-90 transition"
+          className="w-full py-2 rounded-md font-semibold bg-gradient-to-r from-blue-500 to-indigo-600 text-white hover:opacity-90 transition disabled:opacity-60"
+          disabled={loading}
         >
-          Submit Blog
+          {loading ? "Submitting..." : "Submit Blog"}
         </button>
       </form>
     </div>

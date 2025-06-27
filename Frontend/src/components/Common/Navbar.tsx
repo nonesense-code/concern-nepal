@@ -25,21 +25,27 @@ const Navbar = () => {
             </section>
 
             <section className="hidden md:flex items-center justify-center gap-4 font-medium text-lg">
-              {["Home", "About", "Our Services", "Market Research"].map(
-                (item, index) => (
-                  <a
-                    key={index}
-                    href={
-                      index === 0
-                        ? "#"
-                        : `#${item.toLowerCase().split(" ").join("-")}`
-                    }
-                    className="hover:bg-zinc-600 px-4 py-2 rounded-full outline-none"
-                  >
-                    {item}
-                  </a>
-                )
-              )}
+              {[
+                "Home",
+                "About",
+                "Blogs",
+                "Our Services",
+                "Market Research",
+              ].map((item, index) => (
+                <a
+                  key={index}
+                  href={
+                    index === 0
+                      ? "#"
+                      : index === 2
+                      ? "/blogs"
+                      : `#${item.toLowerCase().split(" ").join("-")}`
+                  }
+                  className="hover:bg-zinc-600 px-4 py-2 rounded-full outline-none"
+                >
+                  {item}
+                </a>
+              ))}
             </section>
 
             <section className="hidden md:flex">
