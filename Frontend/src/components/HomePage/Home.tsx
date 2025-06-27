@@ -1,12 +1,12 @@
-import About from "../AboutPage/About";
-import Service from "../ServicePage/Service";
-import Partner from "../PartnerPage/Partner";
-import Impact from "../OurImpact/Impact";
+import About from "./AboutSection/About";
+import Service from "./ServiceSection/Service";
+import Partner from "./PartnerSection/Partner";
+import Impact from "./OurImpactSection/Impact";
 import TypedText from "../../utils/TypedText";
-import Ready from "../ReadySection/Ready";
-import WhoAreWe from "../WhoAreWePage/WhoAreWe";
-import Expert from "../ExpertSection/Expert";
-import HowWeWork from "../HowWeWorkSection/HowWeWork";
+import Ready from "./ReadySection/Ready";
+import WhoAreWe from "./WhoAreWeSection/WhoAreWe";
+import Expert from "./ExpertSection/Expert";
+import HowWeWork from "./HowWeWorkSection/HowWeWork";
 
 const Home = () => {
   return (

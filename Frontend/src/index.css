@@ -36,3 +36,27 @@ html {
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask-composite: exclude;
 }
+
+/* Scrollbar for dashboard */
+
+.dashboardContainer::-webkit-scrollbar,
+.mobileMenuContainer::-webkit-scrollbar {
+  width: 2px;
+}
+
+.dashboardContainer::-webkit-scrollbar-thumb,
+.mobileMenuContainer::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #888888, #555555);
+  border-radius: 10px;
+}
+
+.dashboardContainer::-webkit-scrollbar-track,
+.mobileMenuContainer::-webkit-scrollbar-track {
+  background: th1;
+  border-radius: 10px;
+}
+
+.dashboardContainer::-webkit-scrollbar-thumb:hover,
+.mobileMenuContainer::-webkit-scrollbar-thumb:hover {
+  background: #555555;
+}
