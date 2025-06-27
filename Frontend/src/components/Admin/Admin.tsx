@@ -12,7 +12,6 @@ import {
   Legend,
 } from "recharts";
 
-// Custom label renderer for PieChart to prevent clipping and improve visibility
 const RADIAN = Math.PI / 180;
 const renderCustomizedLabel = ({
   cx,
