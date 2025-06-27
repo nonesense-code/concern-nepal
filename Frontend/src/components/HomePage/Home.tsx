@@ -5,6 +5,8 @@ import Impact from "../OurImpact/Impact";
 import TypedText from "../../utils/TypedText";
 import Ready from "../ReadySection/Ready";
 import WhoAreWe from "../WhoAreWePage/WhoAreWe";
+import Expert from "../ExpertSection/Expert";
+import HowWeWork from "../HowWeWorkSection/HowWeWork";
 
 const Home = () => {
   return (
@@ -46,7 +48,9 @@ const Home = () => {
       </section>
       <About />
       <Service />
+      <Expert />
       <WhoAreWe />
+      <HowWeWork />
       <Impact />
       <Ready />
       <Partner />
