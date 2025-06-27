@@ -12,7 +12,7 @@ const About = () => {
               <div className="border-t-4 border-t-[#013892] w-22"></div>
             </div>
             <h4 className="text-center uppercase tracking-tight text-lg md:text-4xl">
-              Exceptional Insights for Meaningful
+              Exceptional Insights for Meaningful{" "}
               <span className="text-[#db143c]">Impact</span>
             </h4>
             <p className="text-center font-medium text-base">
