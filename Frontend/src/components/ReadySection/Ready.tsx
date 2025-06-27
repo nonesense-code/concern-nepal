@@ -1,5 +1,3 @@
-import React from 'react'
-
 const Ready = () => {
   return (
      <div className="bg-gradient-to-r from-[#003B9F] via-[#5E2A8A] to-[#D90E31] text-white py-20 px-6 text-center">
