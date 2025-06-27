@@ -54,19 +54,22 @@ const statusStyles: Record<string, string> = {
   Completed: "bg-green-400 text-green-900",
 };
 
+type Blog = {
+  _id: string;
+  title: string;
+  status: "Pending" | "In Progress" | "Completed";
+  createdAt: string;
+  tags?: string[];
+};
+
 const Admin = () => {
-  const [blogs, setBlogs] = useState([]);
+  // Specify the generic type parameter for useState here:
+  const [blogs, setBlogs] = useState<Blog[]>([]);
   const [blogStats, setBlogStats] = useState({
     Pending: 0,
     "In Progress": 0,
     Completed: 0,
   });
-
-  type Blog = {
-    _id: string;
-    title: string;
-    status: "Pending" | "In Progress" | "Completed";
-  };
 
   useEffect(() => {
     const fetchBlogs = async () => {
@@ -208,7 +211,7 @@ const Admin = () => {
               </tr>
             </thead>
             <tbody className="divide-y divide-white/10">
-              {blogs.map((blog: any) => (
+              {blogs.map((blog) => (
                 <tr
                   key={blog._id}
                   className="hover:bg-white/10 transition-colors duration-200"
@@ -233,7 +236,7 @@ const Admin = () => {
                         })}
                       </span>
                       <div className="flex flex-wrap gap-1">
-                        {(blog.tags || []).map((tag: string, idx: number) => (
+                        {(blog.tags || []).map((tag, idx) => (
                           <span
                             key={idx}
                             className="bg-blue-500/20 text-blue-300 px-2 py-0.5 rounded-md"
