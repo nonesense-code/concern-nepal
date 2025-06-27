@@ -1,4 +1,3 @@
-import React from "react";
 import {
   PieChart,
   Pie,
@@ -22,7 +21,6 @@ const renderCustomizedLabel = ({
   innerRadius,
   outerRadius,
   percent,
-  index,
   name,
 }: any) => {
   const radius = innerRadius + (outerRadius - innerRadius) * 0.6;
@@ -119,7 +117,7 @@ const Admin = () => {
                 label={renderCustomizedLabel}
                 labelLine={false}
               >
-                {chartData.map((entry, index) => (
+                {chartData.map((_, index) => (
                   <Cell
                     key={`cell-${index}`}
                     fill={COLORS[index % COLORS.length]}
