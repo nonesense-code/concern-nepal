@@ -33,10 +33,7 @@ const NewBlog = () => {
 
     try {
       // Send formData object directly; axios automatically JSON.stringify it and sets headers
-      const response = await axios.post(
-        `${VITE_BACKEND_URL}/blog/create`,
-        formData
-      );
+      await axios.post(`${VITE_BACKEND_URL}/blog/create`, formData);
 
       // Axios throws on bad status automatically, so you can just check response.data if needed
       setSuccess(true);

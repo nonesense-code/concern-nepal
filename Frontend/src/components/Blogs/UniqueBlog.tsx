@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
-import ReactMarkdown from "react-markdown";
 
 const VITE_BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
@@ -118,45 +117,59 @@ const UniqueBlog = () => {
         {blog.content.split(/\r?\n/).map((line, index) => {
           const trimmed = line.trim();
 
-          // Check if line starts with h1:, h2:, ..., h6:
+          // Match headings h1: to h6:
           const headingMatch = trimmed.match(/^(h[1-6]):(.*)/i);
 
           if (headingMatch) {
-            const Tag =
-              headingMatch[1].toLowerCase() as keyof JSX.IntrinsicElements; // 'h1' | 'h2' | ...
+            const headingType = headingMatch[1].toLowerCase(); // e.g. "h1"
             const text = headingMatch[2].trim();
 
-            return (
-              <Tag
-                key={index}
-                className="mt-6 mb-4 font-bold"
-                // Add heading size based on tag (optional)
-                style={{
-                  fontSize:
-                    Tag === "h1"
-                      ? "1.5rem"
-                      : Tag === "h2"
-                      ? "1.75rem"
-                      : Tag === "h3"
-                      ? "1.5rem"
-                      : Tag === "h4"
-                      ? "1rem"
-                      : Tag === "h5"
-                      ? ".75rem"
-                      : "1rem",
-                }}
-              >
-                {text}
-              </Tag>
-            );
+            switch (headingType) {
+              case "h1":
+                return (
+                  <h1 key={index} className="mt-6 mb-4 font-bold text-4xl">
+                    {text}
+                  </h1>
+                );
+              case "h2":
+                return (
+                  <h2 key={index} className="mt-6 mb-4 font-bold text-3xl">
+                    {text}
+                  </h2>
+                );
+              case "h3":
+                return (
+                  <h3 key={index} className="mt-6 mb-4 font-bold text-2xl">
+                    {text}
+                  </h3>
+                );
+              case "h4":
+                return (
+                  <h4 key={index} className="mt-6 mb-4 font-bold text-xl">
+                    {text}
+                  </h4>
+                );
+              case "h5":
+                return (
+                  <h5 key={index} className="mt-6 mb-4 font-bold text-lg">
+                    {text}
+                  </h5>
+                );
+              case "h6":
+                return (
+                  <h6 key={index} className="mt-6 mb-4 font-bold text-base">
+                    {text}
+                  </h6>
+                );
+              default:
+                return null;
+            }
           }
 
           if (trimmed === "") {
-            // No extra empty lines; just skip
             return null;
           }
 
-          // Normal paragraph
           return (
             <p key={index} className="mb-4 leading-relaxed">
               {trimmed}
