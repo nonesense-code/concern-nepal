@@ -15,7 +15,7 @@ const Navbar = () => {
         <div className="container mx-auto w-full bg-[rgba(10,20,32,0.6)] backdrop-blur-md rounded-full border-1 border-[#afafaf] px-4 mt-4">
           <div className="flex items-center justify-between">
             <section className="flex-shrink-0 py-2">
-              <Link to="/">
+              <Link to="/" className="outline-none">
                 <img
                   src="/images/logo.png"
                   alt="Company Logo"
@@ -34,7 +34,7 @@ const Navbar = () => {
                         ? "#"
                         : `#${item.toLowerCase().split(" ").join("-")}`
                     }
-                    className="hover:bg-zinc-600 px-4 py-2 rounded-full"
+                    className="hover:bg-zinc-600 px-4 py-2 rounded-full outline-none"
                   >
                     {item}
                   </a>
@@ -43,7 +43,7 @@ const Navbar = () => {
             </section>
 
             <section className="hidden md:flex">
-              <button className="style-button px-4 py-2 rounded-full text-white">
+              <button className="outline-none style-button px-4 py-2 rounded-full text-white">
                 Contact/Event
               </button>
             </section>

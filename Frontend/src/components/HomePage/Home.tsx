@@ -4,6 +4,7 @@ import Partner from "../PartnerPage/Partner";
 import Impact from "../OurImpact/Impact";
 import TypedText from "../../utils/TypedText";
 import Ready from "../ReadySection/Ready";
+import WhoAreWe from "../WhoAreWePage/WhoAreWe";
 
 const Home = () => {
   return (
@@ -45,8 +46,9 @@ const Home = () => {
       </section>
       <About />
       <Service />
+      <WhoAreWe />
       <Impact />
-      <Ready/>
+      <Ready />
       <Partner />
     </>
   );
