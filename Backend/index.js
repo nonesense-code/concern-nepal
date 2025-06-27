@@ -5,12 +5,7 @@ const cors = require("cors");
 const app = express();
 
 const FRONTEND_URL = process.env.FRONTEND_URL;
-app.use(
-  cors({
-    origin: FRONTEND_URL,
-    credentials: true,
-  })
-);
+app.use(cors());
 
 // MongoDB Connection
 const { DBConnection } = require("./Models/DB_Connection");

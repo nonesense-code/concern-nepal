@@ -36,11 +36,18 @@ const Navbar = () => {
                   key={index}
                   href={
                     index === 0
-                      ? "#"
+                      ? "/"
                       : index === 2
                       ? "/blogs"
-                      : `#${item.toLowerCase().split(" ").join("-")}`
+                      : `/#${item.toLowerCase().split(" ").join("-")}`
                   }
+                  onClick={(e) => {
+                    if (index !== 0 && index !== 2) {
+                      e.preventDefault();
+                      const section = item.toLowerCase().split(" ").join("-");
+                      window.location.href = `/#${section}`;
+                    }
+                  }}
                   className="hover:bg-zinc-600 px-4 py-2 rounded-full outline-none"
                 >
                   {item}
