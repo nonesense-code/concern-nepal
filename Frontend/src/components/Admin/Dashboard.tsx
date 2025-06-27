@@ -2,6 +2,7 @@ import { MdSpaceDashboard } from "react-icons/md";
 import { MdAdminPanelSettings } from "react-icons/md";
 import { IoMdAddCircle } from "react-icons/io";
 import { FaEdit } from "react-icons/fa";
+import { MdLogout } from "react-icons/md";
 
 import { Link } from "react-router-dom";
 
@@ -36,6 +37,12 @@ const Dashboard = () => {
               <button className="outline-none flex items-center space-x-2 w-full border-b text-left py-2 text-zinc-200 text-sm border-neutral-400">
                 <FaEdit className="text-[#0a0f1f] text-xl" />
                 Edit Blog
+              </button>
+            </Link>
+            <Link to="/" className="outline-none w-full">
+              <button className="outline-none flex items-center bg-red-500 rounded-md space-x-2 px-2 w-full text-left py-2 text-zinc-200 text-sm">
+                <MdLogout className="text-[#0a0f1f] text-xl" />
+                Logout
               </button>
             </Link>
           </div>
