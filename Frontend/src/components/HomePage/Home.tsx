@@ -3,6 +3,7 @@ import Service from "../ServicePage/Service";
 import Partner from "../PartnerPage/Partner";
 import Impact from "../OurImpact/Impact";
 import TypedText from "../../utils/TypedText";
+import Ready from "../ReadySection/Ready";
 
 const Home = () => {
   return (
@@ -45,6 +46,7 @@ const Home = () => {
       <About />
       <Service />
       <Impact />
+      <Ready/>
       <Partner />
     </>
   );
