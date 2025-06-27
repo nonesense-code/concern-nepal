@@ -3,8 +3,8 @@ import testimonials from "./partnerTestimonial";
 
 const Partner = () => {
   return (
-    <div className="bg-white px-6 md:px-20 py-20">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+    <section className="bg-white px-6 md:px-20 py-20">
+      <div className="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
         <div>
           <h2 className="text-[#003B9F] font-bold text-2xl mb-6">
             What Our Partners Say
@@ -51,7 +51,7 @@ const Partner = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

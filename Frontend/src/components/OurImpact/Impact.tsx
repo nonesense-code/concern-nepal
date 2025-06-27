@@ -1,93 +1,84 @@
+import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import impacts from "./Impact-data";
+
 const Impact = () => {
+  const [selectedTag, setSelectedTag] = useState("All");
+
+  const tags = ["All", "Education", "Health", "Economics"];
+
+  const filteredImpacts =
+    selectedTag === "All"
+      ? impacts
+      : impacts.filter((item) => item.tag === selectedTag);
+
   return (
-    <>
-      <section className="bg-[#F3F7FA]">
-        <div className="py-8 container mx-auto px-12">
-          <div className="flex flex-col items-center justify-center">
-            <h2 className="text-center font-bold text-3xl text-[#003b9f]">
-              Read Our Impact
-            </h2>
-            <p className="mt-4 text-center text-base font-medium text-[#57606d]">
-              Case studies showcasing our research contributions
-            </p>
-            <ul className="mt-8 flex items-center w-1/2 justify-evenly gap-2">
-              <li className="px-4 py-1 rounded-md bg-white active:text-white cursor-pointer active:bg-[#003b9f] text-[#003b9f]">
-                All
+    <section className="bg-[#F3F7FA]">
+      <div className="py-8 container mx-auto px-12">
+        <div className="flex flex-col items-center justify-center">
+          <h2 className="text-center font-bold text-3xl text-[#003b9f]">
+            Read Our Impact
+          </h2>
+          <p className="mt-4 text-center text-base font-medium text-[#57606d]">
+            Case studies showcasing our research contributions
+          </p>
+          <ul className="mt-8 flex items-center w-1/2 justify-evenly gap-2">
+            {tags.map((tag) => (
+              <li
+                key={tag}
+                onClick={() => setSelectedTag(tag)}
+                className={`px-4 py-1 rounded-md cursor-pointer ${
+                  selectedTag === tag
+                    ? "bg-[#003b9f] text-white"
+                    : "bg-white text-black hover:bg-[#003b9f]/10"
+                }`}
+              >
+                {tag}
               </li>
-              <li className="px-4 py-1 rounded-md bg-white active:text-white cursor-pointer active:bg-[#003b9f] text-[#003b9f]">
-                Education
-              </li>
-              <li className="px-4 py-1 rounded-md bg-white active:text-white cursor-pointer active:bg-[#003b9f] text-[#003b9f]">
-                Health
-              </li>
-              <li className="px-4 py-1 rounded-md bg-white active:text-white cursor-pointer active:bg-[#003b9f] text-[#003b9f]">
-                Economics
-              </li>
-            </ul>
-          </div>
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            <div className="rounded-lg overflow-hidden border border-gray-300 shadow-sm bg-white">
-              <img
-                src="/images/Health-service.png"
-                alt="Health"
-                className="w-full h-48 object-cover"
-              />
-              <div className="p-4 flex flex-col gap-2">
-                <span className="bg-[#d90e31] text-white px-3 py-1 rounded-full w-fit text-sm">
-                  Health
-                </span>
-                <h4 className="text-[#003b9f] font-semibold text-lg">
-                  Services of स्वयंसेवक
-                </h4>
-                <p className="text-gray-700 text-sm leading-snug">
-                  National Female Community Health Volunteers Day! The Female
-                  Community Health Volunteers (FCHVs) program is running since
-                  1988 in Nepal.
-                </p>
-              </div>
-            </div>
-            <div className="rounded-lg overflow-hidden border border-gray-300 shadow-sm bg-white">
-              <img
-                src="/images/Education.png"
-                alt="Education"
-                className="w-full h-48 object-cover"
-              />
-              <div className="p-4 flex flex-col gap-2">
-                <span className="bg-[#003b9f] text-white px-3 py-1 rounded-full w-fit text-sm">
-                  Education
-                </span>
-                <h4 className="text-[#003b9f] font-semibold text-lg">
-                  Female Community Health Volunteers (FCHVs){" "}
-                </h4>
-                <p className="text-gray-700 text-sm leading-snug">
-                  Taking MUAC measurements and providing Vitamin A
-                </p>
-              </div>
-            </div>
-            <div className="rounded-lg overflow-hidden border border-gray-300 shadow-sm bg-white">
-              <img
-                src="/images/Presentation.png"
-                alt="Presentation"
-                className="w-full h-48 object-cover"
-              />
-              <div className="p-4 flex flex-col gap-2">
-                <span className="bg-[#d90e31] text-white px-3 py-1 rounded-full w-fit text-sm">
-                  Economics
-                </span>
-                <h4 className="text-[#003b9f] font-semibold text-lg">
-                  Presentation of Mothers{" "}
-                </h4>
-                <p className="text-gray-700 text-sm leading-snug">
-                  Presenting the report on “Mothers/caretakers perception on
-                  services provided by FCHVs: A study of Melung Rural
-                  Municipality and Tarkeshwor Municipality, Nepal.”
-                </p>
-              </div>
-            </div>
-          </div>
+            ))}
+          </ul>
         </div>
-      </section>
-    </>
+
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <AnimatePresence mode="wait">
+            {filteredImpacts.map((item, index) => (
+              <motion.div
+                key={item.heading + index}
+                layout
+                initial={{ opacity: 0, y: 30, filter: "blur(2px)" }}
+                animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                exit={{ opacity: 0, y: -30 }}
+                transition={{ duration: 0.3 }}
+                className="rounded-lg overflow-hidden border border-gray-300 shadow-sm bg-white"
+              >
+                <img
+                  src={item.image}
+                  alt={item.tag}
+                  className="w-full h-48 object-cover"
+                />
+                <div className="p-4 flex flex-col gap-2">
+                  <span
+                    className={`${
+                      item.tag === "Health" || item.tag === "Economics"
+                        ? "bg-[#d90e31]"
+                        : "bg-[#003b9f]"
+                    } text-white px-3 py-1 rounded-full w-fit text-sm`}
+                  >
+                    {item.tag}
+                  </span>
+                  <h4 className="text-[#003b9f] font-semibold text-lg">
+                    {item.heading}
+                  </h4>
+                  <p className="text-gray-700 text-sm leading-snug">
+                    {item.para}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </div>
+      </div>
+    </section>
   );
 };
 
