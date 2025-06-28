@@ -150,6 +150,18 @@ const NewBlog = () => {
         </div>
 
         {/* Content */}
+        <span className="inline-block px-3 py-2 bg-white text-red-600 font-semibold rounded-md shadow-sm border border-red-300">
+          Use <code className="font-mono bg-red-100 px-1 rounded">h1:</code> -{" "}
+          <code className="font-mono bg-red-100 px-1 rounded">h6:</code> to
+          indicate heading. Eg:{" "}
+          <code className="font-mono bg-red-100 px-1 rounded">
+            h1:This is heading
+          </code>
+          ,{" "}
+          <code className="font-mono bg-red-100 px-1 rounded">
+            h4:This is subheading
+          </code>
+        </span>
         <div>
           <label className="block text-sm font-medium mb-1">Content</label>
           <textarea
