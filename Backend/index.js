@@ -1,13 +1,11 @@
 // Load environment variables
 const dotenv = require("dotenv");
 dotenv.config();
-
 const express = require("express");
 const cors = require("cors");
 
 const app = express();
 
-// Middleware to parse JSON and urlencoded bodies
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 

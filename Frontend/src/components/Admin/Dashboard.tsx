@@ -3,12 +3,14 @@ import { MdAdminPanelSettings } from "react-icons/md";
 import { IoMdAddCircle } from "react-icons/io";
 import { FaEdit } from "react-icons/fa";
 import { MdLogout } from "react-icons/md";
+import { IoPersonAdd } from "react-icons/io5";
+import { FiUsers } from "react-icons/fi";
 
 import { Link } from "react-router-dom";
 
 const Dashboard = () => {
   return (
-    <section className="dashboardContainer overflow-y-auto fixed top-0 left-0 w-1/2 lg:w-1/4 h-full bg-[rgba(20,30,42,0.8)] backdrop-blur-lg transform transition-transform duration-300 z-50">
+    <section className="dashboardContainer fixed top-0 left-0 w-full min-h-screen overflow-y-auto bg-[rgba(20,30,42,0.8)] backdrop-blur-lg transform transition-transform duration-300 z-50">
       <div className="p-4 w-full">
         <div className="w-full flex items-start flex-col">
           <div className="flex items-center justify-between w-full">
@@ -37,6 +39,18 @@ const Dashboard = () => {
               <button className="outline-none flex items-center space-x-2 w-full border-b text-left py-2 text-zinc-200 text-sm border-neutral-400">
                 <FaEdit className="text-[#0a0f1f] text-xl" />
                 Edit Blog
+              </button>
+            </Link>
+            <Link to="/admin/signup" className="outline-none w-full">
+              <button className="outline-none flex items-center space-x-2 w-full border-b text-left py-2 text-zinc-200 text-sm border-neutral-400">
+                <IoPersonAdd className="text-[#0a0f1f] text-xl" />
+                Add New Account
+              </button>
+            </Link>
+            <Link to="/admin/manage-user" className="outline-none w-full">
+              <button className="outline-none flex items-center space-x-2 w-full border-b text-left py-2 text-zinc-200 text-sm border-neutral-400">
+                <FiUsers className="text-[#0a0f1f] text-xl" />
+                Manage User
               </button>
             </Link>
             <Link to="/" className="outline-none w-full">

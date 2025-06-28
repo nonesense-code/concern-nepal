@@ -56,7 +56,7 @@ const NewBlog = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[rgba(10,20,32,0.6)] backdrop-blur-md text-white flex items-center justify-center px-4">
+    <div className="min-h-screen bg-[rgba(10,20,32,0.6)] backdrop-blur-md text-white flex items-center justify-center p-8">
       <form
         onSubmit={handleSubmit}
         className="w-full max-w-2xl bg-white/10 backdrop-blur-lg shadow-lg p-8 space-y-6 rounded-xl"

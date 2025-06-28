@@ -2,15 +2,18 @@ import React from "react";
 import { Navigate } from "react-router-dom";
 
 type ProtectedRouteProps = {
-  isAuth: boolean;
-  children: React.ReactElement;
+  children: React.ReactElement | React.ReactNode;
 };
 
-const ProtectedRoute = ({ isAuth, children }: ProtectedRouteProps) => {
-  if (!isAuth) {
+const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
+  const token = localStorage.getItem("token");
+
+  if (!token) {
+    // Not logged in, redirect to login page
     return <Navigate to="/admin/login" replace />;
   }
-  return children;
+
+  return <>{children}</>;
 };
 
 export default ProtectedRoute;

@@ -5,6 +5,7 @@ import { IoClose } from "react-icons/io5";
 
 const Navbar = () => {
   const [isMenu, setIsMenu] = useState(false);
+  const token = localStorage.getItem("token");
   const toggleMenu = () => {
     setIsMenu(!isMenu);
   };
@@ -55,7 +56,15 @@ const Navbar = () => {
               ))}
             </section>
 
-            <section className="hidden md:flex">
+            <section className="hidden md:flex gap-3">
+              {token && (
+                <Link
+                  to="/admin"
+                  className="outline-none bg-black text-center px-4 py-2 rounded-md active:scale-105 text-white"
+                >
+                  Admin
+                </Link>
+              )}
               <button className="outline-none style-button px-4 py-2 rounded-full text-white">
                 Contact/Event
               </button>
@@ -102,11 +111,19 @@ const Navbar = () => {
               )
             )}
           </div>
-          <div className="mt-10">
-            <button className="style-button px-4 py-2 rounded-full text-white">
+          <section className="mt-10 flex items-start justify-center gap-2 flex-col">
+            {token && (
+              <Link
+                to="/admin"
+                className="outline-none bg-black text-center px-4 py-2 rounded-md active:scale-105 text-white"
+              >
+                Admin
+              </Link>
+            )}
+            <button className="outline-none style-button px-4 py-2 rounded-full text-white">
               Contact/Event
             </button>
-          </div>
+          </section>
         </div>
       </section>
     </>
