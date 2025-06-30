@@ -8,6 +8,10 @@ html {
   scroll-behavior: smooth;
 }
 
+  body {
+    font-family: 'Cabinet Grotesk', sans-serif;
+  }
+
 .style-button {
   position: relative;
   display: inline-block;
