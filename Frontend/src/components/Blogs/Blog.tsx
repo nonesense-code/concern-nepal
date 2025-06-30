@@ -55,53 +55,55 @@ const Blog = () => {
       </h1>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {blogs.map((blog) => (
-          <Link
-            to={`/blog/${blog._id}`}
-            key={blog._id}
-            className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden flex flex-col"
-          >
-            {blog.image ? (
-              <img
-                src={blog.image}
-                alt={blog.title}
-                className="h-48 w-full object-cover"
-                loading="lazy"
-              />
-            ) : (
-              <div className="h-48 w-full bg-gray-200 flex items-center justify-center text-gray-400 text-xl">
-                No Image
-              </div>
-            )}
+        {blogs
+          .filter((blog) => blog.status?.toLowerCase() === "completed")
+          .map((blog) => (
+            <Link
+              to={`/blog/${blog._id}`}
+              key={blog._id}
+              className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden flex flex-col"
+            >
+              {blog.image ? (
+                <img
+                  src={blog.image}
+                  alt={blog.title}
+                  className="h-48 w-full object-cover"
+                  loading="lazy"
+                />
+              ) : (
+                <div className="h-48 w-full bg-gray-200 flex items-center justify-center text-gray-400 text-xl">
+                  No Image
+                </div>
+              )}
 
-            <div className="p-6 flex flex-col flex-grow">
-              <h2 className="text-xl font-semibold text-gray-900 mb-2 line-clamp-2">
-                {blog.title}
-              </h2>
-              <p className="text-gray-700 flex-grow line-clamp-3">
-                {blog.content
-                  ? blog.content.substring(0, 120) + "..."
-                  : "No description available."}
-              </p>
-              <div className="mt-4 flex items-center justify-between text-sm text-gray-500">
-                <span>By {blog.author || "Unknown"}</span>
-                {blog.status && (
-                  <span
-                    className={`capitalize px-2 py-1 rounded-full text-white ${
-                      blog.status === "Pending"
-                        ? "bg-yellow-500"
-                        : blog.status === "In Progress"
-                        ? "bg-blue-500"
-                        : "bg-green-500"
-                    }`}
-                  >
-                    {blog.status}
-                  </span>
-                )}
+              <div className="p-6 flex flex-col flex-grow">
+                <h2 className="text-xl font-semibold text-gray-900 mb-2 line-clamp-2">
+                  {blog.title}
+                </h2>
+                <p className="text-gray-700 flex-grow line-clamp-3">
+                  {blog.content
+                    ? blog.content.substring(0, 120) + "..."
+                    : "No description available."}
+                </p>
+                <div className="mt-4 flex items-center justify-between text-sm text-gray-500">
+                  <span>By {blog.author || "Unknown"}</span>
+                  {blog.status && (
+                    <span
+                      className={`capitalize px-2 py-1 rounded-full text-white ${
+                        blog.status === "Pending"
+                          ? "bg-yellow-500"
+                          : blog.status === "In Progress"
+                          ? "bg-blue-500"
+                          : "bg-green-500"
+                      }`}
+                    >
+                      {blog.status}
+                    </span>
+                  )}
+                </div>
               </div>
-            </div>
-          </Link>
-        ))}
+            </Link>
+          ))}
       </div>
     </div>
   );

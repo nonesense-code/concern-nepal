@@ -5,12 +5,11 @@ import { FaEdit } from "react-icons/fa";
 import { MdLogout } from "react-icons/md";
 import { IoPersonAdd } from "react-icons/io5";
 import { FiUsers } from "react-icons/fi";
-
 import { Link } from "react-router-dom";
 
 const Dashboard = () => {
   return (
-    <section className="dashboardContainer fixed top-0 left-0 w-full min-h-screen overflow-y-auto bg-[rgba(20,30,42,0.8)] backdrop-blur-lg transform transition-transform duration-300 z-50">
+    <section className="dashboardContainer fixed top-0 left-0 w-full h-full overflow-y-auto bg-[rgba(20,30,42,0.8)] backdrop-blur-lg transform transition-transform duration-300 z-50">
       <div className="p-4 w-full">
         <div className="w-full flex items-start flex-col">
           <div className="flex items-center justify-between w-full">

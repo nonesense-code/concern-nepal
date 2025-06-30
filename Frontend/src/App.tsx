@@ -27,7 +27,6 @@ const App = () => {
 
         {/* Unprotected Admin login/signup */}
         <Route path="/admin/login" element={<Login />} />
-        <Route path="/admin/signup" element={<Signup />} />
 
         {/* Protected Admin Routes */}
         <Route
@@ -41,6 +40,7 @@ const App = () => {
           <Route index element={<Admin />} />
           <Route path="new-blog" element={<NewBlog />} />
           <Route path="edit-blog" element={<EditBlog />} />
+          <Route path="/admin/signup" element={<Signup />} />
           <Route path="edit/:id" element={<EditBlogId />} />
           <Route path="delete-blog" element={<DeleteBlog />} />
           <Route path="manage-user" element={<ManageUser />} />

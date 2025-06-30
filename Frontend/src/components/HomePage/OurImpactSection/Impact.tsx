@@ -13,7 +13,7 @@ const Impact = () => {
       : impacts.filter((item) => item.tag === selectedTag);
 
   return (
-    <section className="bg-[#F3F7FA]">
+    <section className="bg-[#F3F7FA] pt-12" id="market-research">
       <div className="py-8 container mx-auto px-12">
         <div className="flex flex-col items-center justify-center">
           <h2 className="text-center font-bold text-3xl text-[#003b9f]">
@@ -22,7 +22,7 @@ const Impact = () => {
           <p className="mt-4 text-center text-base font-medium text-[#57606d]">
             Case studies showcasing our research contributions
           </p>
-          <ul className="mt-8 flex items-center w-1/2 justify-evenly gap-2">
+          <ul className="mt-8 flex items-center w-1/2 justify-center gap-2">
             {tags.map((tag) => (
               <li
                 key={tag}
