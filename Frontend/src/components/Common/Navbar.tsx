@@ -109,7 +109,7 @@ const Navbar = () => {
 
                 const href =
                   index === 0
-                    ? "/"
+                    ? "/#"
                     : index === 3
                     ? "/blogs"
                     : `/#${item.toLowerCase().replace(/\s+/g, "-")}`;
