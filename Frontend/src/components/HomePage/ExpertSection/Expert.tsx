@@ -2,7 +2,7 @@ const team = [
   {
     name: "Nabaraj Khanal",
     title: "Managing Director",
-    image: "/images/expert/nawaraj Khanal.png",
+    image: "images/partners/Nabaraj Khanal.png",
   },
   {
     name: "Narayan Panthi",
@@ -11,12 +11,12 @@ const team = [
         Research and Data <br /> Strategist
       </>
     ),
-    image: "/images/expert/Narayan Panthi.png",
+    image: "/images/partners/Narayan Panthi.png",
   },
   {
     name: "Rajan Bhandari",
     title: "Researcher",
-    image: "/images/expert/Rajan Bhandari.png",
+    image: "/images/partners/Rajan Bhandari.png",
   },
   {
     name: "Roshan Khanal",
@@ -25,7 +25,7 @@ const team = [
         Technology and Digital <br /> Operations Manager
       </>
     ),
-    image: "/images/expert/Roshan Khanal.png",
+    image: "/images/partners/Roshan Khanal.png",
   },
 ];
 
@@ -53,7 +53,7 @@ export default function ExpertsSection() {
                 }}
               >
                 <img
-                  src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  src={member.image}
                   alt={member.name || "Team Member"}
                   className="object-cover w-full h-full object-top rounded-full"
                 />

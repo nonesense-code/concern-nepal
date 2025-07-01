@@ -30,7 +30,6 @@ const Login: React.FC = () => {
 
       if (res.status === 200) {
         localStorage.setItem("token", res.data.token);
-        localStorage.setItem("email", res.data.email);
         navigate("/admin");
       }
     } catch (err: any) {
