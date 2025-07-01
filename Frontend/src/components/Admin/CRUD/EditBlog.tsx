@@ -1,17 +1,12 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 type Blog = {
-  _id: number;
+  _id: string; // MongoDB _id as string
   title: string;
   status: string;
 };
-
-const dummyBlogs: Blog[] = [
-  { _id: 1, title: "How to Write Clean Code", status: "Pending" },
-  { _id: 2, title: "State Management in React", status: "In Progress" },
-  { _id: 3, title: "Tailwind CSS Best Practices", status: "Completed" },
-];
 
 const statusStyles: Record<string, string> = {
   Pending: "bg-yellow-100 text-yellow-800",
@@ -19,20 +14,59 @@ const statusStyles: Record<string, string> = {
   Completed: "bg-green-100 text-green-800",
 };
 
+const VITE_BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+
 const EditBlog = () => {
-  const [blogs, setBlogs] = useState(dummyBlogs);
+  const [blogs, setBlogs] = useState<Blog[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const navigate = useNavigate();
 
-  const handleDelete = (_id: number) => {
-    if (window.confirm("Are you sure you want to delete this blog?")) {
+  // Fetch blogs on mount
+  useEffect(() => {
+    const fetchBlogs = async () => {
+      try {
+        setLoading(true);
+        const response = await axios.get<Blog[]>(
+          `${VITE_BACKEND_URL}/blog/all`
+        );
+        setBlogs(response.data);
+      } catch (err: any) {
+        setError(err.response?.data?.message || "Failed to fetch blogs");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchBlogs();
+  }, []);
+
+  const handleDelete = async (_id: string) => {
+    const confirmText = prompt(
+      'Type "CONFIRM-DELETE" to permanently delete this blog.'
+    );
+
+    if (confirmText !== "CONFIRM-DELETE") {
+      alert("Deletion cancelled. You must type CONFIRM-DELETE exactly.");
+      return;
+    }
+
+    try {
+      await axios.delete(`${VITE_BACKEND_URL}/blog/delete/${_id}`);
       setBlogs(blogs.filter((blog) => blog._id !== _id));
-      // Add your backend delete logic here
+      alert("Blog deleted successfully.");
+    } catch (error: any) {
+      alert(error.response?.data?.message || "Failed to delete blog");
     }
   };
 
-  const handleEdit = (id: number) => {
+  // Navigate to edit page
+  const handleEdit = (id: string) => {
     navigate(`/admin/edit/${id}`);
   };
+
+  if (loading) return <p className="text-white p-6">Loading blogs...</p>;
+  if (error) return <p className="text-red-400 p-6">{error}</p>;
 
   return (
     <div className="min-h-screen bg-[rgba(10,20,32,0.6)] backdrop-blur-md text-white p-6">

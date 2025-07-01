@@ -43,19 +43,22 @@ export default function ExpertsSection() {
           {team.map((member) => (
             <div
               key={member.name}
-              className="flex flex-col items-center text-center transition-transform duration-300 transform hover:scale-105 hover:shadow-xl"
+              className="flex flex-col items-center text-center transition-transform duration-300 transform"
             >
-              <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-pink-100 shadow-lg mb-4">
+              <div
+                className="w-32 h-32 rounded-full overflow-hidden mb-4"
+                style={{
+                  boxShadow: `0 0 25px 4px rgba(248, 211, 214,0.6),
+                  0 0 25px 8px rgba(255, 69, 0, 0.6)`,
+                }}
+              >
                 <img
                   src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                  alt={
-                    typeof member.name === "string"
-                      ? member.name
-                      : "Team Member"
-                  }
-                  className="object-cover w-full h-full object-top"
+                  alt={member.name || "Team Member"}
+                  className="object-cover w-full h-full object-top rounded-full"
                 />
               </div>
+
               <h3 className="text-blue-900 font-semibold text-lg">
                 {member.name}
               </h3>
