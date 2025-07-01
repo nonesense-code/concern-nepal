@@ -30,10 +30,10 @@ const TypedText = () => {
 
   return (
     <div className="flex items-center justify-start flex-wrap gap-2 mb-4 w-full">
-      <div className="bg-black rounded-sm p-1 text-center w-auto text-lg md:text-xl whitespace-nowrap">
+      <div className="rounded-sm p-1 text-center w-auto text-lg md:text-xl whitespace-nowrap">
         🙏🏼
       </div>
-      <div className="bg-[rgba(2,2,2,0.05)] p-2 md:p-1 rounded-sm text-sm md:text-xl text-gray-900">
+      <div className=" p-2 md:p-1 rounded-sm text-sm md:text-xl text-gray-900">
         <span ref={typedElement} />
       </div>
     </div>
