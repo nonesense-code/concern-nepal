@@ -8,14 +8,14 @@ html {
   scroll-behavior: smooth;
 }
 
-  body {
-    font-family: 'Cabinet Grotesk', sans-serif;
-  }
+body {
+  font-family: "Cabinet Grotesk", sans-serif;
+}
 
 .style-button {
   position: relative;
   display: inline-block;
-  padding: 10px 20px;
+  padding: 10px 14px;
   background: transparent;
   z-index: 1;
   cursor: pointer;
