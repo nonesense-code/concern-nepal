@@ -12,6 +12,7 @@ const Login: React.FC = () => {
   const navigate = useNavigate();
 
   const backendURL = import.meta.env.VITE_BACKEND_URL;
+  console.log("Backend URL:", backendURL); // Debug
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -24,16 +25,23 @@ const Login: React.FC = () => {
 
     try {
       const res = await axios.post(`${backendURL}/user/login`, form, {
-        headers: { "Content-Type": "application/json" },
-        withCredentials: true,
+        withCredentials: true, // optional, use if cookies or sessions
       });
 
       if (res.status === 200) {
         localStorage.setItem("token", res.data.token);
+        localStorage.setItem("email", res.data.email);
         navigate("/admin");
       }
     } catch (err: any) {
-      setError(err.response?.data?.message || "Login failed");
+      console.error("Login error:", err);
+      if (err.response?.data?.message) {
+        setError(err.response.data.message);
+      } else if (err.message) {
+        setError(err.message);
+      } else {
+        setError("Login failed. Please try again.");
+      }
     } finally {
       setLoading(false);
     }
