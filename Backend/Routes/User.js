@@ -4,7 +4,6 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const User = require("../Models/UserModel.js");
 
-
 router.get("/all", async (req, res) => {
   try {
     const users = await User.find({}, "-password").sort({ createdAt: -1 });
@@ -17,8 +16,6 @@ router.get("/all", async (req, res) => {
 router.post("/signup", async (req, res) => {
   const { email, password } = req.body;
   try {
-    console.log("Email is:", email);
-    // Check if email already exists
     const existingUser = await User.findOne({ email });
     if (existingUser)
       return res.status(400).json({ message: "Email already exists" });
@@ -38,6 +35,7 @@ router.post("/signup", async (req, res) => {
 
 router.post("/login", async (req, res) => {
   const { email, password } = req.body;
+  console.log(email, password);
 
   try {
     // Check if user exists
@@ -80,6 +78,5 @@ router.delete("/delete/:id", async (req, res) => {
     res.status(500).json({ message: "Failed to delete user." });
   }
 });
-
 
 module.exports = router;

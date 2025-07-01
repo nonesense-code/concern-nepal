@@ -6,7 +6,7 @@ const Blog = require("../Models/BlogModel.js");
 // GET /blog/all
 router.get("/all", async (req, res) => {
   try {
-    const blogs = await Blog.find(); // get all blogs from DB
+    const blogs = await Blog.find();
     res.status(200).json(blogs);
   } catch (error) {
     res.status(500).json({ message: "Failed to fetch blogs", error });
@@ -17,7 +17,6 @@ router.get("/all", async (req, res) => {
 router.get("/:id", async (req, res) => {
   const { id } = req.params;
 
-  // Validate Mongo ObjectId format first
   if (!mongoose.Types.ObjectId.isValid(id)) {
     return res.status(400).json({ message: "Invalid blog id" });
   }

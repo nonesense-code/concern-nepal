@@ -124,9 +124,9 @@ const Navbar = () => {
             {token && (
               <Link
                 to="/admin"
-                className="outline-none bg-black text-center px-4 py-2 rounded-md active:scale-105 text-white"
+                className="outline-none flex items-center text-white justify-center active:scale-105"
               >
-                Admin
+                <MdAdminPanelSettings className="h-8 w-8" />
               </Link>
             )}
             <button className="outline-none style-button px-4 py-2 rounded-full text-white">
