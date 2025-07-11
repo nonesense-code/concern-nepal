@@ -9,9 +9,11 @@ A clean, responsive, and modern website for a non-governmental organization (NGO
 ## 🖼️ Demo Screenshots
 
 ### Frontend Website
+
 ![Frontend Demo](./DemoImages/Frontend-Demo.png)
 
 ### Backend / Admin Panel
+
 ![Backend Demo](./DemoImages/Backend-Demo.png)
 
 ---
@@ -31,13 +33,19 @@ A clean, responsive, and modern website for a non-governmental organization (NGO
 
 ## 🛠 Tech Stack
 
-| Tech                       | Description                         |
-| -------------------------- | --------------------------------- |
-| **React.js**               | Frontend JavaScript framework     |
-| **Vite**                   | Fast bundler and development server|
-| **CSS3** / SCSS / Tailwind | Styling                           |
-| **React Router**           | Routing between pages             |
-| **Vercel**                 | Deployment hosting platform       |
+| Technology        | Description                                                      |
+| ----------------- | ---------------------------------------------------------------- |
+| **React.js**      | Frontend JavaScript framework for building interactive UIs       |
+| **Vite**          | Fast bundler and development server for modern frontend projects |
+| **Tailwind CSS**  | Utility-first CSS framework for rapid UI styling                 |
+| **Figma**         | Design tool used for creating UI/UX prototypes and mockups       |
+| **Lenis**         | Smooth scrolling library for improved scroll experience          |
+| **Framer Motion** | React animation library for declarative animations               |
+| **GSAP**          | Powerful JavaScript animation library for complex animations     |
+| **React Router**  | Client-side routing for single-page applications                 |
+| **Bcrypt**        | Hashing algorithm used for securing passwords in the backend     |
+| **MongoDB**       | NoSQL database used to store application data                    |
+| **Vercel**        | Hosting and deployment platform for frontend applications        |
 
 ---
 
@@ -66,3 +74,4 @@ Backend
 cd Backend
 npm install
 npm start
+```
