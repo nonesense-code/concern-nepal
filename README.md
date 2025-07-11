@@ -71,6 +71,15 @@ npm install
 npm start
 
 Backend
+
+Before starting the backend, **make sure to set your MongoDB URI** in an environment variable.
+
+Step 1:
+Create a `.env` file inside the root of `Backend` folder with the following content:
+Replace `URI` value with your actual MongoDB connection string from mongodb atlas.
+
+Step 2:
+
 cd Backend
 npm install
 npm start
